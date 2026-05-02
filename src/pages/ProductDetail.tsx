@@ -1,128 +1,208 @@
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import supplementsImg from "@/assets/products-supplements.webp";
-import skincareImg from "@/assets/products-skincare.webp";
-import drinksImg from "@/assets/products-drinks.webp";
-import incenseImg from "@/assets/products-incense.webp";
 
-const productData: Record<string, {
-  title: string;
-  img: string;
-  intro: string;
-  items: { name: string; desc: string }[];
-}> = {
+import SHS from "@/assets/SHS.png";
+import SHS1 from "@/assets/SHS1.png";
+import SHS2 from "@/assets/SHS2.png";
+import SHS3 from "@/assets/SHS3.png";
+import SHS4 from "@/assets/SHS4.png";
+import SHS5 from "@/assets/SHS5.png";
+import SHS6 from "@/assets/SHS6.png";
+import SHS7 from "@/assets/SHS7.png";
+import SHS8 from "@/assets/SHS8.png";
+
+const productData = {
   supplements: {
-    title: "Tibetan Herbal Supplements",
-    img: supplementsImg,
-    intro: "Our supplements are prepared from authentic high-altitude Himalayan herbs following classical Tibetan medical formulations. Each product is designed to support specific health needs while promoting overall vitality and balance.",
+    title: "Sorig Herbal Supplements",
+    img: SHS,
+    intro: `Our herbal supplements are carefully prepared from authentic high-altitude Himalayan herbs, following the time-honored principles and classical formulations of Sowa Rigpa. Each formulation is thoughtfully crafted to support specific health needs while nourishing the body’s natural healing capacity, enhancing vitality, and promoting holistic balance of body, mind, and life. Rooted in ancient wisdom and guided by nature, our supplements offer gentle yet profound support for long-term wellbeing.`,
+
     items: [
-      { name: "Padma Basic", desc: "A classic Tibetan herbal formula combining 20+ herbs to support circulatory health, immune function, and general well-being." },
-      { name: "Agar 35", desc: "A traditional nerve-calming formula with 35 ingredients that supports healthy sleep, reduces stress, and balances the Lung (wind) energy." },
-      { name: "Dashel Dutsi", desc: "A moon crystal compound that supports digestive health, reduces acidity, and helps with chronic gastrointestinal issues." },
-      { name: "Chugang 25", desc: "A 25-ingredient liver-support formula that detoxifies and nourishes the liver while balancing bile metabolism." },
-      { name: "Gabur 25", desc: "Supports kidney function and urinary health using camphor-based formulations with 25 carefully selected ingredients." },
-      { name: "Semnyi Kundrol", desc: "A heart-calming formula that eases anxiety, palpitations, and emotional imbalance by harmonizing the subtle energies." },
-    ],
-  },
-  skincare: {
-    title: "Sorig Skin & Hair Care",
-    img: skincareImg,
-    intro: "Our Sorig line of skin and hair care products combines the wisdom of Tibetan medicine with natural Himalayan botanicals. Each product is formulated for specific body constitutions (Lung, Tripa, Beken) to provide targeted care.",
-    items: [
-      { name: "Sorig Herbal Body Lotion", desc: "A nourishing body lotion infused with Tibetan herbs that moisturizes, protects, and rejuvenates the skin naturally." },
-      { name: "Sorig Herbal Talc Powder", desc: "A soothing talc powder made from aromatic Tibetan herbs, ideal for keeping skin fresh and preventing irritation." },
-      { name: "Sorig Herbal Face Cream", desc: "A gentle face cream with anti-aging properties, formulated with high-altitude botanicals to nourish and protect facial skin." },
-      { name: "Sorig Hair Oil", desc: "Traditional hair oil infused with Tibetan herbs that strengthens hair roots, reduces hair fall, and promotes natural shine." },
-      { name: "Sorig Herbal Shampoo", desc: "A gentle herbal shampoo free from harsh chemicals, designed to cleanse the scalp and nourish hair from root to tip." },
-    ],
-  },
-  drinks: {
-    title: "Tibetan Health Drinks",
-    img: drinksImg,
-    intro: "Our health drinks are carefully blended from traditional Tibetan herbal recipes. Each tea and beverage is formulated to address specific constitutional needs and promote internal balance.",
-    items: [
-      { name: "Loong Tea (Wind Balance)", desc: "A calming herbal tea designed to balance Lung (wind) energy, reduce anxiety, improve sleep quality, and soothe the nervous system." },
-      { name: "Tripa Tea (Bile Balance)", desc: "A cooling herbal blend that balances Tripa (bile) energy, aids digestion, reduces acidity, and supports liver health." },
-      { name: "Baekan Tea (Phlegm Balance)", desc: "A warming herbal tea that balances Baekan (phlegm) energy, boosts metabolism, reduces congestion, and improves respiratory health." },
-      { name: "Sorig Detox Tea", desc: "A cleansing herbal blend designed to flush toxins, improve digestion, and rejuvenate the body's natural purification processes." },
-      { name: "Tibetan Wellness Tea", desc: "A general wellness blend combining multiple Himalayan herbs for daily health maintenance and immune support." },
-    ],
-  },
-  incense: {
-    title: "Traditional Tibetan Incense",
-    img: incenseImg,
-    intro: "Our incense is hand-crafted using traditional methods from natural aromatic herbs gathered in the Himalayas. Used for centuries in meditation, healing rituals, and spiritual practice, each blend serves a specific purpose.",
-    items: [
-      { name: "Men-Tsee-Khang Healing Incense", desc: "A medicinal-grade incense formulated according to classical Tibetan medical texts, used for purification and promoting a healing environment." },
-      { name: "Tibetan Meditation Incense", desc: "A calming aromatic blend designed to deepen meditation practice, promote mental clarity, and create a peaceful atmosphere." },
-      { name: "Sorig Relaxation Incense", desc: "A soothing incense blend that reduces stress, calms the mind, and promotes restful sleep through natural aromatic herbs." },
-      { name: "Purification Incense (Sangchoe)", desc: "Traditional purification incense used in spiritual ceremonies to cleanse spaces of negative energies and create an auspicious environment." },
-      { name: "Aromatic Herbal Incense", desc: "A naturally fragrant incense made from a blend of Himalayan herbs, ideal for daily use to freshen living spaces." },
-    ],
-  },
+      {
+        name: "1. Sorig Sangthel Nyernga",
+        img: SHS1,
+        desc: `Based on traditional Tibetan medical texts, Sorig Sangthel Nyernga is a precious herbal formula crafted to support clear breathing, balance within the lungs, and overall vitality. This carefully prepared blend has long been valued in Tibetan practice for promoting comfort in the chest, helping maintain harmony of fluids, and supporting healthy respiratory function. Offered as a 30-day supply, Sangthel Nyernga provides gentle daily support for lung strength and well-being.
+
+Direction Take one pill per dose, half an hour before or after meals, with boiled lukewarm water or cow’s milk. Leave at least one hour between taking this pill and any other medicine. If any adverse reactions occur, discontinue use immediately and consult your physician.
+Storage: Store in a cool, dry place away from direct sunlight and humidity.
+Ingredients: Processed Copper, Liquorice, Raisins, Nutmeg, Clove, Hog Plum, Weaver's Bamboo, Chebulic Myrobalan, Gilloy, Pomegranate, Amla, Sunflower, Cardamon, Coriander.
+30 pills`
+      },
+
+      {
+        name: "2.Dawoe Chinchud Chenmo",
+        img: SHS2,
+        desc: `Traditional Tibetan Liver Support Formula
+Prepared according to the classical principles of Sowa Rigpa, Sorig Dawoe Chinchud Chenmo is a traditional herbal formulation valued for supporting liver health, digestive balance, and overall vitality. Revered in Tibetan healing practice, this formula is traditionally used to help maintain healthy liver function, promote stomach comfort, support blood nourishment, and encourage internal balance.
+Carefully formulated with authentic herbal and mineral ingredients, it is also traditionally appreciated for supporting eye health, helping to ease heat-related imbalances, and promoting digestive harmony. When taken regularly under proper guidance, it serves as a restorative tonic that supports natural wellbeing, resilience, and long-term vitality.
+Key Ingredients:
+Processed Calcite, Saffron, Heracleum species, and traditionally prepared herbo-mineral compounds.
+Directions for Use: Take 1 pill half an hour before or after meals with boiled lukewarm water, or as directed by a qualified physician.
+Storage: Store in a cool, dry place away from direct sunlight.
+Pack Size: 30 Pills`
+      },
+
+      {
+        name: "3. Goyu Dhunjor",
+        img: SHS3,
+        desc: `Traditional Tibetan Kidney Support Formula
+Prepared according to the classical principles of Sowa Rigpa, Sorig Goyu Dhunjor is a traditional herbal formulation valued for supporting kidney vitality, internal balance, and overall strength. Revered in Tibetan healing practice, this formula is traditionally used to nourish kidney function, promote healthy urinary balance, and help ease discomfort in the lower back and waist associated with constitutional imbalance.
+Carefully crafted from authentic herbal ingredients, it is also traditionally appreciated for supporting reproductive vitality, strengthening resilience, and maintaining the body’s natural balance and restorative energy. When taken regularly under proper guidance, it serves as a nourishing daily supplement for vitality, endurance, and holistic wellbeing.
+Key Ingredients:
+Betel Nut Palm, Pomegranate, Cinnamon, True Cardamom, and Long Pepper.
+Directions for Use:
+Take 1 pill once daily with warm water, or as directed by a qualified physician.
+Storage:
+Store in a cool, dry place away from direct sunlight.
+Pack Size:
+30 Pills`
+      },
+
+      {
+        name: "4. Laetrae Ngathang",
+        img: SHS4,
+        desc: `Traditional Tibetan Support for Joint, Muscle & Vascular Health
+Prepared according to the classical principles of Sowa Rigpa, Sorig Laetrae Ngathang is a traditional herbal formulation valued for supporting joint comfort, muscular strength, vascular balance, and overall vitality. In Tibetan healing practice, its gentle cooling nature is traditionally used to help balance excess Tripa (heat), support healthy circulation, and maintain digestive warmth and internal harmony.
+This carefully prepared formula is traditionally appreciated for promoting flexibility, easing joint and muscle discomfort, and supporting smooth movement, physical resilience, and metabolic balance—making it a valuable daily supplement for overall wellbeing.
+Key Ingredients:
+Laetrae, Giloy, Arura (Chebulic Myrobalan), Barura (Beleric Myrobalan), Kyurura (Amla), and Gyatig (Chirata).
+Directions for Use:
+Take one sachet daily in the morning on an empty stomach with hot milk or boiled warm water, followed by mild physical exercise, or as directed by a qualified practitioner.
+Storage:
+Store in a cool, dry place away from direct sunlight.`
+      },
+
+      {
+        name: "5. Sorig Health Tonic",
+        img: SHS5,
+        desc: `Traditional Tibetan Herbal Tonic for Vitality & Strength
+Prepared according to the classical principles of Sowa Rigpa, Sorig Health Tonic is a carefully formulated herbal blend made from pure natural ingredients to support physical vigor, vitality, and overall wellbeing. Traditionally valued in Tibetan healing practice, this nourishing tonic is used to promote strength, support healthy sensory function, enhance resilience against fatigue, and help maintain internal warmth and balance, particularly in supporting kidney vitality.
+Crafted from authentic medicinal herbs, it serves as a restorative daily supplement for energy, endurance, and holistic wellness.
+Ingredients:
+Ashwagandha (Withania somnifera), Licorice (Glycyrrhiza glabra), Cardamom (Elettaria cardamomum), Clove (Syzygium aromaticum), Safflower (Carthamus tinctorius), Amla (Emblica officinalis), Asparagus adscendens, and Long Pepper (Piper longum).
+Directions for Use:
+Take with boiled warm milk or boiled warm water, or as directed by a qualified practitioner.
+Net Contents:
+30 sachets × 2 g`
+      },
+
+      {
+        name: "6. Tsephel Dhutse – Elixir of Life",
+        img: SHS6,
+        desc: `Traditional Tibetan Herbal Rejuvenation Formula
+Prepared according to the classical wisdom of Sowa Rigpa, Sorig Tsephel Dhutse (Elixir of Life) is a carefully crafted traditional herbal formulation valued for supporting vitality, strengthening natural resilience, and promoting overall wellbeing. Revered in Tibetan healing practice as a nourishing rejuvenative tonic, it is traditionally used to help enhance body energy, support immune strength, and maintain internal balance for long-term health and vitality.
+Formulated from authentic natural ingredients, this restorative blend serves as a daily supplement to promote strength, endurance, and holistic wellness.
+Ingredients:
+Rape Seed (Brassica campestris), Japanese Sweetflag (Acorus gramineus), Rock Salt, Long Pepper (Piper longum), Grapes (Vitis vinifera), Dates (Phoenix dactylifera), and Honey.
+Directions for Use:
+Take as directed by a qualified practitioner.
+Caution:
+Avoid use during colds, fever, or acute heat-related conditions unless advised by a qualified practitioner.
+Net Contents:
+30 sachets × 2 g`
+      },
+
+      {
+        name: "7. Lhophel Dhutse – Wisdom Nectar",
+        img: SHS7,
+        desc: `Traditional Tibetan Herbal Support for Growth, Memory & Development
+Prepared according to the classical principles of Sowa Rigpa, Sorig Lhophel Dhutse (Wisdom Nectar) is a carefully formulated traditional herbal blend designed to nourish healthy growth, support cognitive development, and promote overall wellbeing in children. Revered in Tibetan healing practice, this gentle tonic is traditionally valued for supporting memory, concentration, and mental clarity while helping to nurture balanced development of the body and mind.
+This precious formulation is also traditionally appreciated for supporting healthy speech development, clarity of expression, and natural vitality, making it a nourishing supplement for children’s holistic growth and development.
+Ingredients:
+Arura (Terminalia chebula), Ginger (Zingiber officinale), Long Pepper (Piper longum), Black Pepper (Piper nigrum), Japanese Sweetflag (Acorus gramineus), Alum (White Mineral Salt), Grapes (Vitis vinifera), and Dates (Phoenix dactylifera).
+Directions for Use:
+• Children below 12 months: Half a sachet once weekly
+• Children above 12 months: One sachet every 3 days
+Or as directed by a qualified practitioner.
+Caution:`
+      },
+
+      {
+        name: "8. Kaem-Meen-Da-shun",
+        img: SHS8,
+        desc: `Traditional Tibetan Herbal Support for Healthy Weight Management
+Prepared according to the classical principles of Sowa Rigpa, Sorig Kaem-Meen-Da-shun is a carefully formulated traditional herbal blend valued for supporting healthy weight management, metabolic balance, and overall vitality.
+Ingredients:
+Berberis species, Arura, Amla, Ginger, Honey.
+Directions:
+Use as directed by practitioner.
+Caution:
+Not for pregnant women.
+Net Contents:
+30 sachets × 2 g`
+      }
+    ]
+  }
 };
 
 const ProductDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const product = slug ? productData[slug] : null;
+  const { slug } = useParams();
+  const product = productData[slug as keyof typeof productData];
 
-  if (!product) {
-    return (
-      <div className="min-h-screen">
-        <div className="bg-spa-green">
-          <Navbar />
-          <div className="pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
-            <h1 className="text-4xl text-primary-foreground">Product Not Found</h1>
-          </div>
-        </div>
-        <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-          <p className="text-muted-foreground mb-6">The product category you're looking for doesn't exist.</p>
-          <Link to="/" className="text-spa-green hover:underline font-sans text-sm">← Back to Home</Link>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const toggleItem = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  if (!product) return <div>Product not found</div>;
 
   return (
     <div className="min-h-screen">
-      <div className="bg-spa-green">
+      {/* HEADER */}
+      <div className="bg-spa-green text-white h-[260px]">
         <Navbar />
-        <div className="pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground text-sm font-sans mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+
+        <div className="relative top-20 pt-32 pb-10 px-6 max-w-6xl mx-auto flex items-center justify-center">
+          <Link to="/" className="absolute left-6 flex items-center gap-2 text-sm">
+            <ArrowLeft size={16} /> Back
           </Link>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl text-primary-foreground mb-4">{product.title}</h1>
+
+          <h1 className="text-4xl font-serif text-center">
+            {product.title}
+          </h1>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 py-10 sm:py-16">
-        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 mb-10 sm:mb-12">
-          <img src={product.img} alt={product.title} className="w-full md:w-1/2 h-56 sm:h-72 object-cover rounded-lg" />
-          <div className="flex-1 flex flex-col justify-center">
-            <p className="text-muted-foreground text-sm font-sans leading-relaxed">{product.intro}</p>
-          </div>
-        </div>
+      {/* CONTENT */}
+      <div className="max-w-5xl mx-auto px-6 py-10">
+        <img src={product.img} className="w-full max-w-md mx-auto mb-6" />
 
-        <h3 className="text-2xl font-serif mb-6 sm:mb-8">Available Products</h3>
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+        <p className="text-gray-600 whitespace-pre-line mb-10">
+          {product.intro}
+        </p>
+
+        <div className="space-y-4">
           {product.items.map((item, i) => (
-            <div key={i} className="bg-section-bg rounded-lg p-6 hover:shadow-md transition-shadow">
-              <h4 className="text-lg font-serif mb-2">{item.name}</h4>
-              <p className="text-muted-foreground text-sm font-sans leading-relaxed">{item.desc}</p>
+            <div key={i} className="border rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleItem(i)}
+                className={`w-full px-5 py-4 text-left flex justify-between ${
+                  activeIndex === i ? "bg-spa-green text-white" : "bg-blue-100"
+                }`}
+              >
+                {item.name}
+                <span>{activeIndex === i ? "−" : "+"}</span>
+              </button>
+
+              {activeIndex === i && (
+                <div className="p-6">
+                  <img
+                    src={item.img}   // ✅ Correct image per item
+                    className="w-full max-w-md mx-auto mb-4"
+                  />
+
+                  <p className="whitespace-pre-line text-sm text-gray-700">
+                    {item.desc}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
-        </div>
-
-        <div className="mt-10 sm:mt-12 bg-spa-green/10 rounded-lg p-5 sm:p-8 text-center">
-          <h4 className="font-serif text-xl mb-3">Interested in Our Products?</h4>
-          <p className="text-muted-foreground text-sm font-sans mb-4">Contact us for availability, pricing, and personalized product recommendations based on your constitution.</p>
-          <a href="https://api.whatsapp.com/send?phone=917018922152" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-spa-green text-primary-foreground px-6 py-3 rounded-full text-sm font-sans hover:bg-spa-green-light transition-colors">
-            Contact on WhatsApp
-          </a>
         </div>
       </div>
 

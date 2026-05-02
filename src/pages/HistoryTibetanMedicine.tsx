@@ -76,7 +76,7 @@ const HistoryTibetanMedicine = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* HERO */}
-      <div className="bg-spa-green">
+      <div className="bg-spa-green h-[270px]">
         <Navbar />
         <div className="pt-48 pb-16 px-6 max-w-6xl mx-auto">
           <Link
@@ -85,12 +85,20 @@ const HistoryTibetanMedicine = () => {
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-serif text-primary-foreground mb-3">
+            <div className="text-center absolute text-center left-[450px] top-40" >
+  <h1 className="text-2xl sm:text-4xl md:text-5xl text-primary-foreground mb-4">
+    History of Tibetan Medicine
+  </h1>
+  <p className="text-primary-foreground/70 font-sans text-sm max-w-2xl mx-auto">
+    A journey through one of the world's oldest healing traditions
+  </p>
+</div>
+          {/* <h1 className="text-4xl md:text-5xl font-serif text-primary-foreground mb-3">
             History of Tibetan Medicine
           </h1>
           <p className="text-primary-foreground/80 max-w-2xl text-sm">
             A journey through one of the world's oldest healing traditions
-          </p>
+          </p> */}
         </div>
       </div>
 

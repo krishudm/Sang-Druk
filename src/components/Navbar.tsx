@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Instagram, Facebook, Youtube } from "lucide-react";
 import logo from "@/assets/logo-removebg-preview.png";
 import buddha from "@/assets/buddha-medicine.png";
 
 const WHATSAPP_URL =
   "https://api.whatsapp.com/send?phone=917018922152&text=Hello%20Sang-Druk%2C%20I%20would%20like%20to%20book%20an%20appointment.";
 
+
 const productCategories = [
+  { name: "Tibetan Medicine (Rinchen Drangjor)", href: "/tibetan-medicine" },
   { name: "Supplements", href: "/products/supplements" },
   { name: "Skin & Hair Care", href: "/products/skincare" },
   { name: "Health Drinks", href: "/products/drinks" },
@@ -15,7 +17,7 @@ const productCategories = [
 ];
 
 const serviceItems = [
-  { name: "Tibetan Medicine (Rinchen Drangjor)", href: "/tibetan-medicine" },
+  // { name: "Tibetan Medicine (Rinchen Drangjor)", href: "/tibetan-medicine" },
   { name: "Services & Treatments", href: "/services-treatments" },
 ];
 
@@ -85,12 +87,12 @@ const Navbar = () => {
             </span>
 
             {/* Tagline */}
-            <span className="hidden md:block text-white/80 italic font-sans text-xs lg:text-sm mt-1 leading-snug max-w-3xl">
-              At the heart of Sowa Rigpa, healing begins where compassion meets wisdom —
+            <span className="hidden md:block text-white/80 italic font-sans text-xs lg:text-[10px] mt-1 leading-snug max-w-3xl">
+              At the heart of Sowa Rigpa, healing begins where compassion meets wisdom —restoring balance to body, mind, and the science of life.
             </span>
-            <span className="hidden md:block text-white/80 italic font-sans text-xs lg:text-sm leading-snug max-w-3xl">
+            {/* <span className="hidden md:block text-white/80 italic font-sans text-xs lg:text-sm leading-snug max-w-3xl">
               restoring balance to body, mind, and the science of life.
-            </span>
+            </span> */}
           </div>
 
           {/* Right — Buddha image + Mobile toggle */}
@@ -114,24 +116,19 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Bottom bar — sticky gold menu */}
-      <nav className="hidden lg:block h-[47px] bg-spa-gold">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 xl:px-56 flex items-center gap-1">
+       {/* Bottom bar */}
+      <nav className="hidden lg:block h-[40px] bg-spa-gold">
+        <div className="max-w-7xl mx-auto ml-10  lg:px-4 xl:px-56 flex items-center gap-1">
           {/* Centered links */}
-          <div className="flex-1 flex items-center justify-center gap-1">
-            <Link
-              to="/"
-              className="px-5 py-3.5 text-spa-green-deep font-bold text-sm tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
-            >
-              Home
-            </Link>
+          <div className="flex-1 flex items-center justify-center text-spa-green-deep font-bold text-[14px] gap-1">
+            <Link to="/">Home</Link>
             <div
               ref={aboutRef}
               className="relative"
               onMouseEnter={() => setAboutOpen(true)}
               onMouseLeave={() => setAboutOpen(false)}
             >
-              <button className="flex items-center gap-1 px-5 py-3.5 text-spa-green-deep font-bold text-sm tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors">
+              <button className="flex items-center gap-1 px-5 py-3.5 text-spa-green-deep font-bold text-[13px] tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors">
                 About Us
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${aboutOpen ? "rotate-180" : ""}`} />
               </button>
@@ -159,7 +156,7 @@ const Navbar = () => {
                   setProductsOpen(!productsOpen);
                   setServicesOpen(false);
                 }}
-                className="flex items-center gap-1 px-3 py-3.5 text-spa-green-deep font-bold text-xs tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
+                className="flex items-center gap-1 px-3 py-3.5 text-spa-green-deep font-bold text-[13px] tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
               >
                 Products{" "}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
@@ -186,7 +183,7 @@ const Navbar = () => {
                   setServicesOpen(!servicesOpen);
                   setProductsOpen(false);
                 }}
-                className="flex items-center gap-1.5 px-5 py-3.5 text-spa-green-deep font-bold text-sm tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
+                className="flex items-center gap-1.5 px-5 py-3.5 text-spa-green-deep font-bold text-[13px] tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
               >
                 Services{" "}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
@@ -209,23 +206,40 @@ const Navbar = () => {
 
             <Link
               to="/contact"
-              className="px-5 py-3.5 text-spa-green-deep font-bold text-sm tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
+              className="px-5 py-3.5 text-spa-green-deep font-bold text-[13px] tracking-wider uppercase font-sans hover:bg-spa-green-deep hover:text-spa-gold transition-colors"
             >
               Contact
             </Link>
           </div>
 
-          {/* Right — Book Now */}
+          {/* Instagram */}
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <Instagram className="w-5 h-5 text-spa-green-deep hover:text-spa-green transition  " />
+          </a>
+
+          {/* Facebook */}
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <Facebook className="w-5 h-5 text-spa-green-deep hover:text-spa-green transition gap-4 " />
+          </a>
+
+          {/* YouTube */}
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+            <Youtube className="w-5 h-5 text-spa-green-deep hover:text-spa-green transition gap-4 " />
+          </a>
+
+          {/* ORIGINAL BOOK NOW (unchanged) */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex bg-spa-green-deep text-spa-gold font-bold text-sm px-10 py-2.5 rounded-full hover:bg-spa-green hover:shadow-gold transition-all"
+            className=" inline-flex bg-spa-green-deep text-spa-gold font-bold text-sm px-5 py-1 rounded-full hover:bg-spa-green hover:shadow-gold transition-all ml-5"
           >
             Book Now
           </a>
+
         </div>
       </nav>
+
 
       {/* Mobile menu */}
       {mobileOpen && (

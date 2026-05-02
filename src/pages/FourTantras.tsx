@@ -36,16 +36,20 @@ const tantras = [
 const FourTantras = () => {
   return (
     <div className="min-h-screen">
-      <div className="bg-spa-green">
+      <div className="bg-spa-green h-[270px]">
         <Navbar />
         <div className="pt-28 sm:pt-36 md:pt-44 lg:pt-52 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground text-sm font-sans mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl text-primary-foreground mb-4">The Four Medical Tantras</h1>
-          <p className="text-primary-foreground/70 font-sans text-sm max-w-2xl">
-            Gyueshi — the foundational scripture of Tibetan Medicine
-          </p>
+          <div className="text-center absolute text-center left-[400px] top-40" >
+  <h1 className="text-2xl sm:text-4xl md:text-5xl text-primary-foreground mb-4">
+    The Four Medical Tantras
+  </h1>
+  <p className="text-primary-foreground/70 font-sans text-sm max-w-2xl mx-auto">
+    Gyueshi — the foundational scripture of Tibetan Medicine
+  </p>
+</div>
         </div>
       </div>
 

@@ -5,7 +5,6 @@ import sliderMenlha from "@/assets/slider-menlha.webp";
 import sliderProduction from "@/assets/slider-production.webp";
 import sliderQc from "@/assets/slider-qc.webp";
 
-
 const slides = [
   { img: heroBg, alt: "Sang-Druk Tibetan Herbal Clinic" },
   { img: sliderDalaiLama, alt: "His Holiness the 14th Dalai Lama" },
@@ -26,13 +25,19 @@ const HeroSection = () => {
   }, [next]);
 
   return (
-    <section className="relative w-full aspect-[15/9] bg-[#999967] pt-[140px] sm:pt-[150px] lg:pt-[200px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="relative w-full aspect-[21/9] overflow-hidden  shadow-elegant bg-spa-green-deep">
+    <section className="relative w-full pt-[60px] sm:pt-[100px] lg:pt-[150px]">
+
+      {/* ✅ CHANGED: removed max-width container */}
+      <div className="w-full px-0">
+
+        <div className="relative w-full aspect-[21/9] overflow-hidden shadow-elegant bg-spa-green-deep">
+
           {slides.map((slide, i) => (
             <div
               key={i}
-              className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                i === current ? "opacity-100" : "opacity-0"
+              }`}
             >
               <img
                 src={slide.img}
@@ -44,6 +49,23 @@ const HeroSection = () => {
               />
             </div>
           ))}
+
+          {/* ✅ LEFT ARROW */}
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-sm transition"
+          >
+            ❮
+          </button>
+
+          {/* ✅ RIGHT ARROW */}
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full backdrop-blur-sm transition"
+          >
+            ❯
+          </button>
+
         </div>
       </div>
     </section>
