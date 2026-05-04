@@ -5,15 +5,15 @@ import logo from "@/assets/logo-removebg-preview.png";
 import buddha from "@/assets/buddha-medicine.png";
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=917018922152&text=Hello%20Sang-Druk%2C%20I%20would%20like%20to%20book%20an%20appointment.";
+  "https://api.whatsapp.com/send?phone=919836212792&text=Hello%20Sang-Druk%2C%20I%20would%20like%20to%20book%20an%20appointment.";
 
 
 const productCategories = [
-  { name: "Tibetan Medicine (Rinchen Drangjor)", href: "/tibetan-medicine" },
-  { name: "Supplements", href: "/products/supplements" },
-  { name: "Skin & Hair Care", href: "/products/skincare" },
-  { name: "Health Drinks", href: "/products/drinks" },
-  { name: "Incense", href: "/products/incense" },
+  { name: "Tibetan Precious Pills", href: "/tibetan-medicine" },
+  { name: "Sorig Herbal Supplements", href: "/products/supplements" },
+  { name: "Sorig Skin, Hair & Therapeutic Care", href: "/products/skincare" },
+  { name: "Sorig Health Care Tea", href: "/products/drinks" },
+  { name: "Sorig Incense and ritual products", href: "/products/incense" },
 ];
 
 const serviceItems = [
@@ -213,12 +213,12 @@ const Navbar = () => {
           </div>
 
           {/* Instagram */}
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/sang.druk?igsh=NDVzdXdjNTZtZDR2" target="_blank" rel="noopener noreferrer">
             <Instagram className="w-5 h-5 text-spa-green-deep hover:text-spa-green transition  " />
           </a>
 
           {/* Facebook */}
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/share/1ECQmCskMq/" target="_blank" rel="noopener noreferrer">
             <Facebook className="w-5 h-5 text-spa-green-deep hover:text-spa-green transition gap-4 " />
           </a>
 
@@ -313,3 +313,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+

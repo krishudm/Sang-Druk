@@ -49,8 +49,9 @@ const Footer = () => {
           <div>
             <h5 className="font-serif text-lg mb-5">Contact</h5>
             <ul className="space-y-3.5 font-sans text-sm text-primary-foreground/70">
-              <li><a href="tel:+917018922152" className="flex items-center gap-2.5 hover:text-spa-gold transition-colors"><Phone className="w-4 h-4 text-spa-gold" /> 070189 22152</a></li>
-              <li><a href="mailto:info@sangdruk.com" className="flex items-center gap-2.5 hover:text-spa-gold transition-colors"><Mail className="w-4 h-4 text-spa-gold" /> info@sangdruk.com</a></li>
+              <li><a href="tel:+919836212792" className="flex items-center gap-2.5 hover:text-spa-gold transition-colors"><Phone className="w-4 h-4 text-spa-gold" />  9836212792</a></li>
+              <li><a href="tel:+917018922152" className="flex items-center gap-2.5 hover:text-spa-gold transition-colors"><Phone className="w-4 h-4 text-spa-gold" />  7018922152</a></li>
+              <li><a href="mailto:info@sangdruk.com" className="flex items-center gap-2.5 hover:text-spa-gold transition-colors"><Mail className="w-4 h-4 text-spa-gold" /> sangdrukclinic@gmail.com</a></li>
               <li className="flex items-start gap-2.5"><MapPin className="w-4 h-4 mt-0.5 shrink-0 text-spa-gold" /> Ground Floor, AG 296, Vijay Nagar, Scheme No 74, Indore, MP 452010</li>
               <li className="flex items-center gap-2.5"><Clock className="w-4 h-4 text-spa-gold" /> Mon - Sat : 9:00AM - 6:00PM</li>
             </ul>

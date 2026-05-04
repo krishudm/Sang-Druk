@@ -154,10 +154,10 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen">
       {/* HEADER */}
-      <div className="bg-spa-green text-white h-[260px]">
+      <div className="bg-spa-green text-white h-[240px]">
         <Navbar />
 
-        <div className="relative top-20 pt-32 pb-10 px-6 max-w-6xl mx-auto flex items-center justify-center">
+        <div className="relative top-14 pt-32 pb-10 px-6 max-w-6xl mx-auto flex items-center justify-center">
           <Link to="/" className="absolute left-6 flex items-center gap-2 text-sm">
             <ArrowLeft size={16} /> Back
           </Link>
