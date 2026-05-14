@@ -1,6 +1,7 @@
 import { Clock, Sparkles, User, ArrowRight } from "lucide-react";
 import serviceAbhyanga from "@/assets/service-abhyanga.webp";
 import serviceShirodhara from "@/assets/service-shirodhara.webp";
+// import servicetreatment from "/pages/ServicesTreatments.tsx";
 import servicePinda from "@/assets/service-pinda.webp";
 import Reveal from "@/components/Reveal";
 
@@ -13,6 +14,7 @@ const services = [
     focus: "Pain & Energy Flow",
     img: serviceAbhyanga,
     reverse: false,
+    link: "/services-treatments",
   },
   {
     title: "Cupping & Venesection",
@@ -22,6 +24,7 @@ const services = [
     focus: "Detoxification",
     img: serviceShirodhara,
     reverse: true,
+    link: "/services-treatments",
   },
   {
     title: "Tibetan Herbal Medicine",
@@ -31,20 +34,34 @@ const services = [
     focus: "Holistic Healing",
     img: servicePinda,
     reverse: false,
+    link: "/Tibetan-medicine",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="relative py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+    <section
+      id="services"
+      className="relative py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-16"
+    >
       <Reveal className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
         <div>
-          <p className="text-xs tracking-[0.25em] uppercase text-spa-green/70 mb-3 font-sans font-medium">— Our Treatments —</p>
+          <p className="text-xs tracking-[0.25em] uppercase text-spa-green/70 mb-3 font-sans font-medium">
+            — Our Treatments —
+          </p>
+
           <h2 className="text-3xl md:text-4xl leading-[1.15] max-w-2xl text-balance">
-            Authentic Tibetan <em className="italic text-spa-green">Sowa-Rigpa</em> Therapies
+            Authentic Tibetan{" "}
+            <em className="italic text-spa-green">Sowa-Rigpa</em> Therapies
           </h2>
         </div>
-        <a href="https://api.whatsapp.com/send?phone=917018922152&text=Hello%20Sang-Druk%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-spa-gold text-spa-green-deep font-semibold text-sm px-6 py-3 rounded-full shadow-gold hover:shadow-elegant transition-all duration-300 hover:-translate-y-0.5 self-start md:self-auto whitespace-nowrap">
+
+        <a
+          href="https://api.whatsapp.com/send?phone=917018922152&text=Hello%20Sang-Druk%2C%20I%20would%20like%20to%20book%20a%20consultation."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 bg-spa-gold text-spa-green-deep font-semibold text-sm px-6 py-3 rounded-full shadow-gold hover:shadow-elegant transition-all duration-300 hover:-translate-y-0.5 self-start md:self-auto whitespace-nowrap"
+        >
           Book Consultation
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </a>
@@ -55,21 +72,52 @@ const ServicesSection = () => {
           <Reveal key={i} delay={i * 100}>
             <div className="group flex flex-col h-full rounded-2xl overflow-hidden bg-gradient-card shadow-elevated card-lift border border-border/50">
               <div className="relative">
-                <img src={s.img} alt={s.title} className="w-full h-40 sm:h-44 object-cover" loading="lazy" width={640} height={360} />
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  className="w-full h-40 sm:h-44 object-cover"
+                  loading="lazy"
+                  width={640}
+                  height={360}
+                />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-spa-green-deep/50 to-transparent" />
+
                 <div className="absolute top-3 left-3 glass-dark rounded-full px-2.5 py-1 text-[10px] font-sans tracking-widest uppercase text-primary-foreground">
                   0{i + 1}
                 </div>
               </div>
+
               <div className="p-5 flex flex-col flex-1">
                 <h3 className="text-xl mb-2 leading-tight">{s.title}</h3>
-                <p className="text-muted-foreground text-sm font-sans mb-4 leading-relaxed line-clamp-3">{s.desc}</p>
+
+                <p className="text-muted-foreground text-sm font-sans mb-4 leading-relaxed line-clamp-3">
+                  {s.desc}
+                </p>
+
                 <div className="space-y-1.5 mb-4 font-sans text-xs text-muted-foreground border-t border-border/50 pt-3">
-                  <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5 text-spa-gold" /> {s.duration}</div>
-                  <div className="flex items-center gap-2"><Sparkles className="w-3.5 h-3.5 text-spa-gold" /> {s.type}</div>
-                  <div className="flex items-center gap-2"><User className="w-3.5 h-3.5 text-spa-gold" /> {s.focus}</div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-3.5 h-3.5 text-spa-gold" />
+                    {s.duration}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-spa-gold" />
+                    {s.type}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <User className="w-3.5 h-3.5 text-spa-gold" />
+                    {s.focus}
+                  </div>
                 </div>
-                <a href="https://api.whatsapp.com/send?phone=917018922152&text=Hello%20Sang-Druk%2C%20I%20would%20like%20to%20know%20more%20about%20your%20treatments." target="_blank" rel="noopener noreferrer" className="mt-auto group/btn inline-flex items-center gap-2 text-spa-green hover:text-spa-gold text-sm font-sans font-semibold transition-colors self-start">
+
+                <a
+                  href={s.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto group/btn inline-flex items-center gap-2 text-spa-green hover:text-spa-gold text-sm font-sans font-semibold transition-colors self-start"
+                >
                   Learn More
                   <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                 </a>
